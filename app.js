@@ -473,7 +473,8 @@ if (typeof document !== "undefined") (function () {
     const name = lang === "ar" ? dish.name_ar : dish.name_en;
     const desc = lang === "ar" ? dish.desc_ar : dish.desc_en;
     const reason = reasonText(lang, people());
-    const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(dish.name_en + " Riyadh");
+    // "best …" nudges Google Maps to list the top-rated places first (no API key needed).
+    const maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("best " + dish.name_en + " Riyadh");
     const canShareBack = state.mode === "link" && typeof navigator.share === "function";
     const backupHtml = backup ? `
         <div class="backup">
