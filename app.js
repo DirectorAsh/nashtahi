@@ -742,4 +742,6 @@ if (typeof document !== "undefined") (function () {
   }
 
   boot();
+  // A share link opened while the app is already on screen (same tab) must boot again.
+  window.addEventListener("hashchange", () => { if (location.hash) boot(); });
 })();
